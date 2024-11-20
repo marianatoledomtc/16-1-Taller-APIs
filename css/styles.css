@@ -2,9 +2,7 @@ body {
   background-image: url('../img/background.jpg');
   display: flex;
   justify-content: center;
-  /* Centra horizontalmente el contenido */
   align-items: center;
-  /* Centra verticalmente el contenido */
 }
 
 /* Button */
@@ -39,15 +37,11 @@ body {
 .card {
   position: relative;
   width: 100%;
-  /* Ensure cards take up full width of their container */
   height: 400px;
-  /* Set a fixed height */
   box-sizing: border-box;
-  /* Prevents padding from affecting the width/height */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* Ensures content is spaced evenly */
   align-items: center;
   border-style: dotted;
   border-radius: 15px;
@@ -55,7 +49,7 @@ body {
   border-width: 5px;
   border-color: rgb(196, 227, 255);
   overflow: hidden;
-  /* Hide overflow */
+
 }
 
 .card-img-top {
@@ -92,6 +86,43 @@ body {
   background: #ff1493;
 }
 
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.card:hover .card-gif {
+  opacity: 0.6;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.col-md-6 {
+  flex: 1 1 30%;
+  margin: 10px;
+}
+
 /* Kaomojis */
 .kaomoji-left,
 .kaomoji-right {
@@ -123,70 +154,27 @@ body {
 
 }
 
-.card-img-top {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
+/* Media Queries */
+@media (min-width: 1400px) {
+  .kaomoji-left,
+  .kaomoji-right {
+    display: block;
+  }
 }
 
-
-.card-gif {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 20rem;
-  height: 20rem;
-  transform: translate(-50%, -50%);
-  object-fit: contain;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 1;
-
-  .card:hover .card-gif {
-    opacity: 0.6;
-  }
-
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
+@media (max-width: 768px) {
   .col-md-6 {
-    flex: 1 1 30%;
-    margin: 10px;
+    flex: 1 1 100%;
   }
-
-  /* Media Queries */
-
-
-  @media (min-width: 1400px) {
-
-    .kaomoji-left,
-    .kaomoji-right {
-      display: block;
-    }
+  .card-gif {
+    width: 15rem;
+    height: 15rem;
   }
+}
 
-  @media (max-width: 768px) {
-    .col-md-6 {
-      flex: 1 1 100%;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .card-gif {
-      width: 15rem;
-      height: 15rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .card-gif {
-      width: 10rem;
-      height: 10rem;
-    }
+@media (max-width: 480px) {
+  .card-gif {
+    width: 10rem;
+    height: 10rem;
   }
 }
