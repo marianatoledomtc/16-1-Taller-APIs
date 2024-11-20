@@ -1,141 +1,192 @@
 body {
-    background-image: url('../img/background.jpg');
-    display: flex;
-    justify-content: center; /* Centra horizontalmente el contenido */
-    align-items: center; /* Centra verticalmente el contenido */
-  }
-  #loadMoreCats {
-    background-color:rgb(255, 128, 202);
-    color: white;
-    border-color: white;
-  }
-  
-  
-  .container {
-    max-width: 900px; 
-    margin: 0 auto;
-    text-align: center;
-  }
-  
-  /* Title */
-  
-  .my-4 {
-    color: rgb(255, 128, 202);
-    background-color: aliceblue;
-    font-family:'Courier New', Courier, monospace;
-    font-weight: 1000;
-    border-style: dashed;
-    border-width: 5px;
-    border-color: rgb(196, 227, 255);
-    padding-bottom : 10px;
-  }
-  
-  /* Cards */
-  
-  .card {
-    width: 100%;
-    height: 30rem; /* Fixed height for uniformity */
-    display: flex!important;
-    flex-direction: column;
-    justify-content: space-between; /* Ensures content is spaced evenly */
-    align-items: center;
-    border-style: dotted;
-    border-radius: 15px;
-    background-color: aliceblue;
-    border-width: 5px;
-    border-color: rgb(196, 227, 255);
-    overflow: auto; /* Only show the scrollbar when needed */
-    scrollbar-color: rgb(255, 128, 202) rgb(240, 240, 240); /* Customize thumb and track colors */
-    scroll-behavior: smooth;
-  }
-  
-  .card-img-top {
-    max-width: fit-content;
-    object-fit: cover;
-    border-radius: 15px;
-  }
-  
-  .card-body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    text-align: center;
-    color:rgb(52, 88, 189);
-  }
-  .card-title {
-    color: rgb(255, 98, 190);
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-style: oblique;
-    font-weight: 1000;
-    background-color: rgb(196, 227, 255);
-  }
-  
-  /* Scrollbar styles */
-  
-  ::-webkit-scrollbar-thumb {
-    background: #ff69b4; 
-    border-radius: 10px; 
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #ff1493; 
-  }
-  
-  /* Kaomojis */
-  .kaomoji-left,
-  .kaomoji-right {
-    position: fixed;
-    font-family: monospace; 
-    font-size: 30px; 
-    line-height: 1.2; 
-    white-space: pre; 
-  }
-  .kaomoji-left {
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%); 
-    margin-left: 8rem; 
-    background-color: #ff97cb42;
-    border-style: dotted;
-    display: none;
-  }
-  
-  .kaomoji-right {
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%); 
-    margin-right: 8rem; 
-    background-color: #ff97cb42;
-    border-style: dotted;
-    display: none;
-  
-  }
-  
-  .card-img-top {
-    width: 100%;  /* Ensure the image stretches across the card */
-    height: 100%;
-    object-fit: cover;  /* Maintain aspect ratio of the image */
-    border-radius: 15px;
-  }
-  
-  /* GIF positioning and opacity */
-  .card-gif {
-    width: 80%;
-    padding-right: 15px;
-    position: absolute;
-    object-fit:contain;
-    opacity: 0;  /* Initially hidden */
-    transition: opacity 0.3s ease-in-out; /* Smooth fade in/out */
-    z-index: 1; /* Ensure GIF is above the static image */
-  }
-  
+  background-image: url('../img/background.jpg');
+  display: flex;
+  justify-content: center;
+  /* Centra horizontalmente el contenido */
+  align-items: center;
+  /* Centra verticalmente el contenido */
+}
+
+/* Button */
+#loadMoreCats {
+  background-color: rgb(255, 128, 202);
+  color: white;
+  border-color: white;
+}
+
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Title */
+
+.my-4 {
+  color: rgb(255, 128, 202);
+  background-color: aliceblue;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 1000;
+  border-style: dashed;
+  border-width: 5px;
+  border-color: rgb(196, 227, 255);
+  padding-bottom: 10px;
+}
+
+/* Cards */
+
+.card {
+  position: relative;
+  width: 100%;
+  /* Ensure cards take up full width of their container */
+  height: 400px;
+  /* Set a fixed height */
+  box-sizing: border-box;
+  /* Prevents padding from affecting the width/height */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Ensures content is spaced evenly */
+  align-items: center;
+  border-style: dotted;
+  border-radius: 15px;
+  background-color: aliceblue;
+  border-width: 5px;
+  border-color: rgb(196, 227, 255);
+  overflow: hidden;
+  /* Hide overflow */
+}
+
+.card-img-top {
+  max-width: fit-content;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-align: center;
+  color: rgb(52, 88, 189);
+}
+
+.card-title {
+  color: rgb(255, 98, 190);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: oblique;
+  font-weight: 1000;
+  background-color: rgb(196, 227, 255);
+}
+
+/* Scrollbar styles */
+
+::-webkit-scrollbar-thumb {
+  background: #ff69b4;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff1493;
+}
+
+/* Kaomojis */
+.kaomoji-left,
+.kaomoji-right {
+  position: fixed;
+  font-family: monospace;
+  font-size: 30px;
+  line-height: 1.2;
+  white-space: pre;
+}
+
+.kaomoji-left {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  margin-left: 8rem;
+  background-color: #ff97cb42;
+  border-style: dotted;
+  display: none;
+}
+
+.kaomoji-right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  margin-right: 8rem;
+  background-color: #ff97cb42;
+  border-style: dotted;
+  display: none;
+
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+
+.card-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20rem;
+  height: 20rem;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+
   .card:hover .card-gif {
-    opacity: 0.6; /* Show the GIF on hover with reduced opacity */
+    opacity: 0.6;
   }
-  
-  @media (min-width: 1400px) { 
-    .kaomoji-left, .kaomoji-right {
-      display: block; /* Show kaomojis on desktop and larger screens */
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .col-md-6 {
+    flex: 1 1 30%;
+    margin: 10px;
+  }
+
+  /* Media Queries */
+
+
+  @media (min-width: 1400px) {
+
+    .kaomoji-left,
+    .kaomoji-right {
+      display: block;
     }
   }
+
+  @media (max-width: 768px) {
+    .col-md-6 {
+      flex: 1 1 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .card-gif {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card-gif {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+}

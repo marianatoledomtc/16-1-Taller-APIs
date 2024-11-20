@@ -30,9 +30,9 @@ function createCatCard(imageUrl) {
   img.className = 'card-img-top';
 
   let gif = document.createElement('img');
-  gif.src = 'img/pusheen-gif.gif'; // Local path to the GIF in your project
+  gif.src = 'img/pusheen-gif.gif';
   gif.alt = 'Cat GIF';
-  gif.className = 'card-gif';
+  gif.className = 'card-gif text-center';
 
   let cardBody = document.createElement('div');
   cardBody.className = 'card-body text-center';
